@@ -1,0 +1,63 @@
+andrei@MacBook-Pro-Andrej ProgBasics_001 % id
+uid=501(andrei) gid=20(staff) groups=20(staff),12(everyone),61(localaccounts),79(_appserverusr),80(admin),81(_appserveradm),98(_lpadmin),33(_appstore),100(_lpoperator),204(_developer),250(_analyticsusers),395(com.apple.access_ftp),398(com.apple.access_screensharing),399(com.apple.access_ssh),400(com.apple.access_remote_ae),701(com.apple.sharepoint.group.1)
+andrei@MacBook-Pro-Andrej ProgBasics_001 % date
+четверг, 10 сентября 2020 г. 14:13:23 (MSK)
+andrei@MacBook-Pro-Andrej ProgBasics_001 % pwd
+/Users/andrei/MCS_Projects/ProgBasics_001
+andrei@MacBook-Pro-Andrej ProgBasics_001 % cd ..
+andrei@MacBook-Pro-Andrej MCS_Projects % ls
+ProgBasics_001
+andrei@MacBook-Pro-Andrej MCS_Projects % ls -l
+total 0
+drwxr-xr-x  4 andrei  staff  128 10 сен 12:33 ProgBasics_001
+andrei@MacBook-Pro-Andrej MCS_Projects % mkdir work
+andrei@MacBook-Pro-Andrej MCS_Projects % cd work
+andrei@MacBook-Pro-Andrej work % touch digits.txt
+andrei@MacBook-Pro-Andrej work % echo digits.txt
+digits.txt
+andrei@MacBook-Pro-Andrej work % echo "$(<digits.txt)"
+0123456789
+andrei@MacBook-Pro-Andrej work % cat digits1.txt  
+cat: digits1.txt: No such file or directory
+andrei@MacBook-Pro-Andrej work % (cat digits.txt && cat digits.txt) > digits1.txt
+andrei@MacBook-Pro-Andrej work % echo "$(<digits1.txt)"                          
+01234567890123456789
+andrei@MacBook-Pro-Andrej work % cat digits.txt
+0123456789%                                                                         andrei@MacBook-Pro-Andrej work % cat digits1.txt
+01234567890123456789%                                                               andrei@MacBook-Pro-Andrej work % echo 0123456789 > digits.txt  
+andrei@MacBook-Pro-Andrej work % (cat digits.txt && cat digits.txt) > digits1.txt  
+andrei@MacBook-Pro-Andrej work % cat digits1.txt 
+0123456789
+0123456789
+andrei@MacBook-Pro-Andrej work % (cat digits1.txt && cat digits1.txt) > digits2.txt
+andrei@MacBook-Pro-Andrej work % (cat digits2.txt && cat digits1.txt) > digits2.txt
+andrei@MacBook-Pro-Andrej work % (cat digits2.txt && cat digits2.txt) > digits3.txt
+andrei@MacBook-Pro-Andrej work % (cat digits3.txt && cat digits3.txt) > digits4.txt
+andrei@MacBook-Pro-Andrej work % (cat digits4.txt && cat digits4.txt) > digits4.txt
+andrei@MacBook-Pro-Andrej work % (cat digits3.txt && cat digits3.txt) > digits4.txt
+andrei@MacBook-Pro-Andrej work % (cat digits4.txt && cat digits4.txt) > digits5.txt
+andrei@MacBook-Pro-Andrej work % (cat digits5.txt && cat digits5.txt) > digits6.txt
+andrei@MacBook-Pro-Andrej work % (cat digits6.txt && cat digits6.txt) > digits7.txt
+andrei@MacBook-Pro-Andrej work % (cat digits6.txt && cat digits6.txt) > digits7.txt
+andrei@MacBook-Pro-Andrej work % (cat digits.txt && cat digits7.txt) > digits8.txt
+andrei@MacBook-Pro-Andrej work % wc digits8.txt                                   
+      65      65     715 digits8.txt
+andrei@MacBook-Pro-Andrej work % mkdir etc
+andrei@MacBook-Pro-Andrej work % cd etc
+andrei@MacBook-Pro-Andrej etc % mkdir passwd
+andrei@MacBook-Pro-Andrej etc % cd passwd
+andrei@MacBook-Pro-Andrej passwd % cd ..
+andrei@MacBook-Pro-Andrej etc % cd ..
+andrei@MacBook-Pro-Andrej work % head -5 /etc/passwd > a
+andrei@MacBook-Pro-Andrej work % cat a
+##
+# User Database
+# 
+# Note that this file is consulted directly only when the system is running
+# in single-user mode.  At other times this information is provided by
+andrei@MacBook-Pro-Andrej work % tail -5 /etc/passwd > b
+andrei@MacBook-Pro-Andrej work % ls -l /etc > c
+andrei@MacBook-Pro-Andrej work % ls -l /etc* > c
+andrei@MacBook-Pro-Andrej work % ls -l /etc/* > c
+andrei@MacBook-Pro-Andrej work % cat c | wc -l
+     246
