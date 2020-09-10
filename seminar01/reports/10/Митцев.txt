@@ -1,0 +1,31 @@
+1) id
+uid=1000(muldrik) gid=1000(muldrik) groups=1000(muldrik),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),120(lpadmin),131(lxd),132(sambashare)
+2) date
+Чт 10 сен 2020 14:20:17 MSK
+3) pwd
+/home/muldrik/Code/Linux-basics-2020/seminar01
+4) ls
+reports
+task01.md
+ls -l
+total 12
+drwxrwxr-x 3 muldrik muldrik 4096 сен 10 14:11 reports
+-rw-rw-r-- 1 muldrik muldrik 6996 сен 10 14:07 task01.md
+5) mkdir work
+cd work
+6) echo 0123456789 > digits.txt
+cat digits.txt
+7) cat digits.txt | cat >> digits.txt 
+8) cat digits.txt | cat >> digits.txt 
+cat digits.txt | cat >> digits.txt 
+cat digits.txt | cat >> digits.txt 
+cat digits.txt | cat >> digits.txt 
+cat digits.txt | cat >> digits.txt 
+echo 0123456789 >> digits.txt
+9) wc digits.txt
+ 65  65 715 digits.txt
+10) head /etc/passwd -c 5 > head.txt
+tail /etc/passwd -c 5 > tail.txt
+11) ls -l /etc > ls-etc.txt
+12) ls -l /etc | wc -l
+228
