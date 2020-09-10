@@ -1,0 +1,59 @@
+1) maksimmartynov@MacBook-Air desktop % id
+
+uid=501(maksimmartynov) gid=20(staff) groups=20(staff),12(everyone),61(localaccounts),79(_appserverusr),80(admin),81(_appserveradm),98(_lpadmin),33(_appstore),100(_lpoperator),204(_developer),250(_analyticsusers),395(com.apple.access_ftp),398(com.apple.access_screensharing),399(com.apple.access_ssh),400(com.apple.access_remote_ae)
+
+2) maksimmartynov@MacBook-Air desktop % date
+
+Thu Sep 10 14:19:15 MSK 2020
+
+3) maksimmartynov@MacBook-Air desktop % pwd
+
+/Users/maksimmartynov/desktop
+
+4) maksimmartynov@MacBook-Air desktop % ls
+
+IMG_2813.jpeg
+Remarque-Erich-Maria-Der-schwarze-Obelisk.pdf
+sample.txt
+
+maksimmartynov@MacBook-Air desktop % ls -l
+
+total 7984
+-rw-r--r--@ 1 maksimmartynov  staff   379281 Sep  4 14:46 IMG_2813.jpeg
+-rw-r--r--@ 1 maksimmartynov  staff  2958698 Sep  6 23:35 Remarque-Erich-Maria-Der-schwarze-Obelisk.pdf
+-rw-r--r--@ 1 maksimmartynov  staff      747 Sep 10 14:22 sample.txt
+
+5) maksimmartynov@MacBook-Air desktop % mkdir work
+maksimmartynov@MacBook-Air desktop % cd work
+
+6) maksimmartynov@MacBook-Air work % cat > digits.txt
+0 1 2 3 4 5 6 7 8 9
+maksimmartynov@MacBook-Air work % cat digits.txt
+
+0 1 2 3 4 5 6 7 8 9
+
+7) maksimmartynov@MacBook-Air work % cat > digits2.txt
+0 1 2
+0 1 2
+ 
+
+8) maksimmartynov@MacBook-Air work % cat digits2.txt digits2.txt > digits4.txt
+maksimmartynov@MacBook-Air work % cat digits4.txt digits4.txt > digits8.txt
+maksimmartynov@MacBook-Air work % cat digits8.txt digits8.txt > digits16.txt
+maksimmartynov@MacBook-Air work % cat digits16.txt digits16.txt > digits32.txt
+maksimmartynov@MacBook-Air work % cat digits32.txt digits32.txt > digits64.txt
+maksimmartynov@MacBook-Air work % cat digits.txt digits64.txt > digits65.txt
+
+9) maksimmartynov@MacBook-Air work % wc digits65.txt
+
+      65     202     404 digits65.txt 
+
+10) maksimmartynov@MacBook-Air work % head -5 /etc/passwd | cat > first5.txt
+maksimmartynov@MacBook-Air work % tail -5 /etc/passwd | cat > last5.txt
+
+11) maksimmartynov@MacBook-Air work % ls -l /etc/ | cat > all_files.txt
+
+12) maksimmartynov@MacBook-Air ~ % ls -l /etc/ | wc -l
+     112
+
+
