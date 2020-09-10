@@ -50,3 +50,156 @@ western@DESKTOP-MPKC13J ~/work $ sudo ls -l /etc > file.txt
 12)
 western@DESKTOP-MPKC13J ~/work $ wc file.txt -l
 181 file.txt
+
+--------------------------------------------------------------------------------------------------------
+
+Задание 1.
+
+western@DESKTOP-MPKC13J ~/work $ mkdir DirA
+western@DESKTOP-MPKC13J ~/work $ mkdir DirB
+western@DESKTOP-MPKC13J ~/work $ echo "2313" > DirA/a1.txt
+western@DESKTOP-MPKC13J ~/work $ echo "asidiad" > DirA/a2.txt
+western@DESKTOP-MPKC13J ~/work $ echo "DFIJSFI" > DirB/b1.txt
+western@DESKTOP-MPKC13J ~/work $ echo "dfsf\dsfsdf sgfg" > DirB/b2.txt
+western@DESKTOP-MPKC13J ~/work $ cat DirA/a1.txt DirA/a2.txt DirB/b1.txt DirB/b2.txt > file.txt
+
+western@DESKTOP-MPKC13J ~/work $ rm -r DirA/
+western@DESKTOP-MPKC13J ~/work $ rm -r DirB/
+
+--------------------------------------------------------------------------------------------------------
+
+Задание 2.
+
+western@DESKTOP-MPKC13J ~/work $ grep -r western /etc/passwd
+western:x:1000:1000:,,,:/home/western:/usr/bin/zsh
+
+western@DESKTOP-MPKC13J ~/work $ date -d "2021-01-01"
+Fri Jan  1 00:00:00 MSK 2021
+
+--------------------------------------------------------------------------------------------------------
+
+Задание 3.
+
+western@DESKTOP-MPKC13J ~/work $ id > file.txt
+western@DESKTOP-MPKC13J ~/work $ ls >> file.txt
+western@DESKTOP-MPKC13J ~/work $ ps >> file.txt
+western@DESKTOP-MPKC13J ~/work $ date >> file.txt
+western@DESKTOP-MPKC13J ~/work $ grep -r file.txt file.txt
+
+western@DESKTOP-MPKC13J ~/work $ cal -y 2019 > file.txt
+
+--------------------------------------------------------------------------------------------------------
+
+Задание 4.
+
+western@DESKTOP-MPKC13J ~/work $ ls /etc | grep -i '.*\.conf$' | head
+adduser.conf
+ca-certificates.conf
+debconf.conf
+deluser.conf
+e2scrub.conf
+fuse.conf
+gai.conf
+hdparm.conf
+host.conf
+kernel-img.conf
+
+western@DESKTOP-MPKC13J ~/work $ mkdir fold
+western@DESKTOP-MPKC13J ~/work $ chmod 000 fold
+western@DESKTOP-MPKC13J ~/work $ cd fold
+cd: permission denied: fold
+
+--------------------------------------------------------------------------------------------------------
+
+Задание 5.
+
+western@DESKTOP-MPKC13J ~/work $ touch a.txt
+western@DESKTOP-MPKC13J ~/work $ chmod 640 a.txt
+
+western@DESKTOP-MPKC13J ~/work $ chmod u-r a.txt
+
+--------------------------------------------------------------------------------------------------------
+
+Задание 6.
+
+western@DESKTOP-MPKC13J ~/work $ tar -czf archive.tar.gz a.txt b.txt c.txt
+
+western@DESKTOP-MPKC13J ~/work $ tar -xvzf archive.tar.gz
+
+--------------------------------------------------------------------------------------------------------
+
+Задание 7.
+
+western@DESKTOP-MPKC13J ~/work $ touch a.txt
+western@DESKTOP-MPKC13J ~/work $ chmod 640 a.txt
+
+western@DESKTOP-MPKC13J ~/work $ chmod a+w a.txt
+
+--------------------------------------------------------------------------------------------------------
+
+Задание 8.
+
+western@DESKTOP-MPKC13J ~/work $ find /usr/bin -name 'z*'
+/usr/bin/zcat
+/usr/bin/zcmp
+/usr/bin/zdiff
+/usr/bin/zdump
+/usr/bin/zegrep
+/usr/bin/zfgrep
+/usr/bin/zforce
+/usr/bin/zgrep
+/usr/bin/zipdetails
+/usr/bin/zless
+/usr/bin/zmore
+/usr/bin/znew
+/usr/bin/zsh
+/usr/bin/zsh5
+
+western@DESKTOP-MPKC13J ~/work $ find // -type f -mtime -1
+
+--------------------------------------------------------------------------------------------------------
+
+Задание 9.
+
+western@DESKTOP-MPKC13J ~/work $ find ~ -user student | wc -l
+
+western@DESKTOP-MPKC13J ~/work $ tail -5 /etc/passwd | wc -w
+
+--------------------------------------------------------------------------------------------------------
+
+Задание 10.
+
+western@DESKTOP-MPKC13J ~/work $ mkdir 123
+western@DESKTOP-MPKC13J ~/work $ touch a.txt
+western@DESKTOP-MPKC13J ~/work $ ls -l
+total 0
+drwxrwxrwx 1 western western 4096 Sep 11 00:09 123
+-rw-rw-rw- 1 western western    0 Sep 11 00:09 a.txt
+
+western@DESKTOP-MPKC13J ~/work $ ls /etc | grep -i '.*\.conf$' | head
+adduser.conf
+ca-certificates.conf
+debconf.conf
+deluser.conf
+e2scrub.conf
+fuse.conf
+gai.conf
+hdparm.conf
+host.conf
+kernel-img.conf
+
+--------------------------------------------------------------------------------------------------------
+
+Задание 11.
+
+western@DESKTOP-MPKC13J ~/work $ touch a.txt
+western@DESKTOP-MPKC13J ~/work $ chmod 557 a.txt
+
+western@DESKTOP-MPKC13J ~/work $ mv a.txt aaa.txt
+western@DESKTOP-MPKC13J ~/work $ cat > aaa.txt
+blah blH BLah
+la la la
+western@DESKTOP-MPKC13J ~/work $ cat aaa.txt
+blah blH BLah
+la la la
+western@DESKTOP-MPKC13J ~/work $ rm aaa.txt
