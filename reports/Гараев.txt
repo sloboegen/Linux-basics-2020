@@ -1,0 +1,66 @@
+1)
+
+timur@timur-Lenovo:~/Documents/linux/Linux-basics-2020/reports$ whoami 
+
+timur
+
+2)
+
+timur@timur-Lenovo:~/Documents/linux/Linux-basics-2020/reports$ date
+
+Чт 10 сен 2020 14:29:59 MSK
+
+3)
+
+timur@timur-Lenovo:~/Documents/linux/Linux-basics-2020/reports$ pwd
+
+/home/timur/Documents/linux/Linux-basics-2020/reports
+
+4)
+
+timur@timur-Lenovo:~/Documents/linux/Linux-basics-2020/reports$ ls -l
+total 1
+-rw-rw-r-- 1 timur timur 87 сен 10 14:28 ГАРАЕВ.txt
+
+timur@timur-Lenovo:~/Documents/linux/Linux-basics-2020/reports$ ls
+ГАРАЕВ.txt
+
+5) 
+
+timur@timur-Lenovo:~/Documents/linux/Linux-basics-2020/reports$ mkdir work
+timur@timur-Lenovo:~/Documents/linux/Linux-basics-2020/reports$ cd work/
+
+6) 
+
+timur@timur-Lenovo:~/Documents/linux/Linux-basics-2020/reports/work$ touch digits.txt
+timur@timur-Lenovo:~/Documents/linux/Linux-basics-2020/reports/work$ cat > digits.txt 
+0123456789
+timur@timur-Lenovo:~/Documents/linux/Linux-basics-2020/reports/work$ cat digits.txt 
+0123456789
+
+7) 
+
+timur@timur-Lenovo:~/Documents/linux/Linux-basics-2020/reports/work$ cat digits.txt digits.txt > 2linefile.txt
+
+8) 
+
+timur@timur-Lenovo:~/Documents/linux/Linux-basics-2020/reports/work$ for ((n = 0; n < 65; n++)) do  cat digits.txt >> 65linefile; done
+
+9) 
+
+timur@timur-Lenovo:~/Documents/linux/Linux-basics-2020/reports/work$ wc 65linefile 
+65  65 715 65linefile
+
+10)
+
+timur@timur-Lenovo:~/Documents/linux/Linux-basics-2020/reports/work$ head -5 /etc/passwd > headPasswd.txt && tail -5 /etc/passwd > tailPasswd.txt
+
+11) 
+
+timur@timur-Lenovo:~/Documents/linux/Linux-basics-2020/reports/work$ ls -l /etc > etc.txt
+
+12) 
+
+timur@timur-Lenovo:~/Documents/linux/Linux-basics-2020/reports/work$ ls -1 /etc | wc -l
+244
+
