@@ -1,0 +1,52 @@
+Простейшие команды:
+1)    
+western@DESKTOP-MPKC13J ~ $ id
+uid=1000(western) gid=1000(western) groups=1000(western),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),117(netdev)
+2)
+western@DESKTOP-MPKC13J ~ $ date
+Thu Sep 10 19:54:11 MSK 2020
+3)
+western@DESKTOP-MPKC13J ~ $ pwd
+/home/western
+4)
+western@DESKTOP-MPKC13J ~ $ ls
+django_ex  hw1  prog  venv
+western@DESKTOP-MPKC13J ~ $ ls -l
+total 0
+drwxrwxrwx 1 western western 4096 Jun  8 20:33 django_ex
+drwxrwxrwx 1 western western 4096 Sep 10 18:57 hw1
+drwxrwxrwx 1 western western 4096 May 27 13:52 prog
+drwxrwxrwx 1 western western 4096 May 23 21:16 venv
+5)
+western@DESKTOP-MPKC13J ~ $ mkdir work
+western@DESKTOP-MPKC13J ~ $ cd work
+6)
+western@DESKTOP-MPKC13J ~/work $ echo "1234567890" > digits.txt
+western@DESKTOP-MPKC13J ~/work $ cat digits.txt
+1234567890
+7)
+western@DESKTOP-MPKC13J ~/work $ cat digits.txt digits.txt > file.txt
+8)
+western@DESKTOP-MPKC13J ~/work $ for i in {1..65}
+for> cat digits.txt >> file_65.txt
+9)
+western@DESKTOP-MPKC13J ~/work $ wc file_65.txt -l
+65 file_65.txt
+10)
+western@DESKTOP-MPKC13J ~/work $ head -5 /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+western@DESKTOP-MPKC13J ~/work $ tail -5 /etc/passwd
+tcpdump:x:108:113::/nonexistent:/usr/sbin/nologin
+sshd:x:109:65534::/run/sshd:/usr/sbin/nologin
+landscape:x:110:115::/var/lib/landscape:/usr/sbin/nologin
+pollinate:x:111:1::/var/cache/pollinate:/bin/false
+western:x:1000:1000:,,,:/home/western:/usr/bin/zsh
+11)
+western@DESKTOP-MPKC13J ~/work $ sudo ls -l /etc > file.txt
+12)
+western@DESKTOP-MPKC13J ~/work $ wc file.txt -l
+181 file.txt
