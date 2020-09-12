@@ -1,0 +1,216 @@
+Первая группа заданий
+1.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~$ id
+uid=1000(klimoza) gid=1000(klimoza) группы=1000(klimoza),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),120(lpadmin),131(lxd),132(sambashare)
+2.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~$ date
+Чт 10 сен 2020 14:08:22 MSK
+3.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~$ pwd
+/home/klimoza
+4.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~$ ls
+ reports   snap   Видео   Документы   Загрузки   Изображения   Музыка   Общедоступные  'Рабочий стол'   Шаблоны
+klimoza@klimoza-Lenovo-Y520-15IKBN:~$ ls -l
+итого 40
+drwxrwxr-x 2 klimoza klimoza 4096 сен 10 14:14  reports
+drwxr-xr-x 6 klimoza klimoza 4096 сен 10 10:01  snap
+drwxr-xr-x 2 klimoza klimoza 4096 сен  9 21:25  Видео
+drwxr-xr-x 3 klimoza klimoza 4096 сен 10 11:13  Документы
+drwxr-xr-x 3 klimoza klimoza 4096 сен 10 14:10  Загрузки
+drwxr-xr-x 2 klimoza klimoza 4096 сен  9 21:25  Изображения
+drwxr-xr-x 2 klimoza klimoza 4096 сен  9 21:25  Музыка
+drwxr-xr-x 2 klimoza klimoza 4096 сен  9 21:25  Общедоступные
+drwxr-xr-x 2 klimoza klimoza 4096 сен  9 21:25 'Рабочий стол'
+drwxr-xr-x 2 klimoza klimoza 4096 сен  9 21:25  Шаблоны
+5.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~$ mkdir work
+klimoza@klimoza-Lenovo-Y520-15IKBN:~$ cd work
+6.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ cat > digits.txt
+0123456789
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ cat digits.txt
+0123456789
+7.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ echo '1' > digits2.txt
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ cat digits2.txt digits2.txt > digits3.txt
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ cat digits3.txt
+1
+1
+8.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ cat digits3.txt digits3.txt > digits4.txt
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ cat digits4.txt digits4.txt > digits5.txt
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ cat digits5.txt digits5.txt > digits6.txt
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ cat digits6.txt digits6.txt > digits7.txt
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ cat digits7.txt digits7.txt > digits8.txt
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ cat digits2.txt digits8.txt > digits9.txt
+9.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ wc digits9.txt
+ 65  65 130 digits9.txt
+10.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ head -5 /etc/passwd > h.txt
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ tail -5 /etc/passwd > t.txt
+11.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ ls -l /etc > lst.txt
+12.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ ls -l /etc | wc
+    227    2048   13217
+    
+    
+Вторая группа заданий	
+Задание 1
+1.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ mkdir DirA
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ mkdir DirB
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ > DirA/A1
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ > DirA/A2
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ > DirB/B1
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ > DirB/B2
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ cat DirA/A1 DirA/A2 DirB/B1 DirB/B2 > res
+2.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ rm -R DirA
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ rm -R DirB
+
+Задание 2
+1.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ grep "1000" /etc/passwd
+klimoza:x:1000:1000:Ivan,,,:/home/klimoza:/bin/bash
+2.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ date -d"2020-01-01"
+Ср 01 янв 2020 00:00:00 MSK
+
+Задание 3
+1.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ id > info.txt
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ ls >> info.txt
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ ps >> info.txt
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ date >> info.txt
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ grep "info.txt" info.txt
+info.txt
+2.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ cal 2019 > info.txt
+
+Задание 4
+1.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ ls /etc | grep '.*\.conf' | head
+adduser.conf
+apg.conf
+appstream.conf
+brltty.conf
+ca-certificates.conf
+ca-certificates.conf.dpkg-old
+debconf.conf
+deluser.conf
+e2scrub.conf
+fprintd.conf
+2.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ mkdir test
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ chmod 0 test
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ ls test
+ls: невозможно открыть каталог 'test': Отказано в доступе
+
+Задание 5
+1.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ > a.txt
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ chmod 640 a.txt
+2.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ chmod u-r a.txt
+
+Задание 6
+1.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ > t1
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ > t2 
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ > t3
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ tar -cf archive.tar ~/work
+tar: Удаляется начальный `/' из имен объектов
+tar: /home/klimoza/work/archive.tar: файл является архивом; не сброшен
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ gzip archive.tar
+2.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ tar -xvf archive.tar.gz
+home/klimoza/work/
+home/klimoza/work/t2
+home/klimoza/work/t3
+home/klimoza/work/t1
+
+Задание 7
+1.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ > a.txt
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ chmod 640 a.txt
+2.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ chmod o+w a.txt
+
+Задание 8
+1.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ find /usr/bin -name 'z*'
+/usr/bin/zdump
+/usr/bin/zipsplit
+/usr/bin/zipinfo
+/usr/bin/zenity
+/usr/bin/zgrep
+/usr/bin/zipdetails
+/usr/bin/zip
+/usr/bin/zipcloak
+/usr/bin/zmore
+/usr/bin/zegrep
+/usr/bin/zipnote
+/usr/bin/zless
+/usr/bin/zcat
+/usr/bin/zdiff
+/usr/bin/zipgrep
+/usr/bin/znew
+/usr/bin/zfgrep
+/usr/bin/zforce
+/usr/bin/zjsdecode
+/usr/bin/zcmp
+2.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ find / -mtime -50
+
+Задание 9
+1.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ find / -user student | wc -l
+find: ‘student’ не является именем известного пользователя
+0
+2.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ tail -5 /etc/passwd
+pulse:x:123:128:PulseAudio daemon,,,:/var/run/pulse:/usr/sbin/nologin
+gnome-initial-setup:x:124:65534::/run/gnome-initial-setup/:/bin/false
+gdm:x:125:130:Gnome Display Manager:/var/lib/gdm3:/bin/false
+klimoza:x:1000:1000:Ivan,,,:/home/klimoza:/bin/bash
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ tail -5 /etc/passwd | wc -w
+10
+
+Задание 10
+1.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ > t1
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ mkdir t2
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ ls -l
+итого 4
+-rw-rw-r-- 1 klimoza klimoza    0 сен 12 22:20 t1
+drwxrwxr-x 2 klimoza klimoza 4096 сен 12 22:20 t2
+2.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ ls /etc | grep '.*\.conf' | head
+adduser.conf
+apg.conf
+appstream.conf
+brltty.conf
+ca-certificates.conf
+ca-certificates.conf.dpkg-old
+debconf.conf
+deluser.conf
+e2scrub.conf
+fprintd.conf
+
+Задание 11
+1.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ > a.txt
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ chmod o+w a.txt
+2.
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ mv a.txt aaa.txt
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ cat > aaa.txt
+kek
+lol
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ cat aaa.txt
+kek
+lol
+klimoza@klimoza-Lenovo-Y520-15IKBN:~/work$ rm aaa.txt
