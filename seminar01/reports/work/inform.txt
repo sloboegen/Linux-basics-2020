@@ -1,0 +1,14 @@
+uid=1000(monic) gid=1000(monic) groups=1000(monic),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),120(lpadmin),131(lxd),132(sambashare)
+AandB.txt
+A.txt
+B.txt
+ctg.txt
+digits.txt
+first.txt
+inform.txt
+num.txt
+second.txt
+    PID TTY          TIME CMD
+   3182 pts/1    00:00:00 bash
+   5899 pts/1    00:00:00 ps
+Сб 12 сен 2020 21:42:23 MSK

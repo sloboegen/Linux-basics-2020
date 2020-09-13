@@ -1,0 +1,17 @@
+.
+./st.txt
+./AandB.txt
+./second.txt
+./digits.txt
+./sr.txt
+./newcatalog
+./newcatalog/a.txt
+./inform.txt
+./archive.tar.gz
+./A.txt
+./calendar.txt
+./num.txt
+./B.txt
+./ctg.txt
+./num_file.txt
+./first.txt

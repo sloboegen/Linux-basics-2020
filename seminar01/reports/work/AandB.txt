@@ -1,0 +1,4 @@
+fileA dirA
+fileB dirA
+fileA dirB
+fileB dirA
