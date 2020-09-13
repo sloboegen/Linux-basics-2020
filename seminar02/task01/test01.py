@@ -3,7 +3,7 @@ import subprocess
 import os
 
 
-class TestSum(unittest.TestCase):
+class Test1(unittest.TestCase):
     def test1(self):
         p = subprocess.Popen(['sh', 'task01.sh'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         stdout, stderr = p.communicate()
