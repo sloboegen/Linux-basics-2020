@@ -1,0 +1,219 @@
+Первая группа заданий
+1) 
+команда : $ id
+вывод : uid=1000(feggie) gid=1000(feggie) группы=1000(feggie),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),120(lpadmin),131(lxd),132(sambashare)
+
+
+2)
+команда : $ date
+вывод : Вс 13 сен 2020 13:51:25 MSK
+
+
+3)
+команда : $ pwd
+вывод : /home/feggie/Linux-basics-2020/seminar01/reports
+
+
+4)
+команда : $ ls , 
+вывод : Тюряев.txt
+
+команда : $ ls -l , 
+вывод : 
+итого 4 
+-rw-rw-r-- 1 feggie feggie 233 сен 13 13:51 Тюряев.txt
+
+5) создал при помощи
+$ mkdir work
+
+
+6) команда : $ cat digits.txt
+вывод : 0 1 2 3 4 5 6 7 8 9
+
+
+7) создал при помощи
+$ cat > paragraph7
+
+
+8) создал при помощи
+echo "123" > 123_file
+START=0
+while [ $START -lt 65 ]; do
+        cat 123_file >> end_file
+        let START=START+1
+done
+
+
+9) команда : $ wc paragraph8 
+вывод : 65  65 260 paragraph8
+
+
+10) сохранил в paragraph10 и paragraph10.2 : 
+команда : $ head -5 /etc/passwd >> paragraph10
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+
+команда : $ tail -5 /etc/passwd >> paragraph10.2
+gdm:x:125:130:Gnome Display Manager:/var/lib/gdm3:/bin/false
+feggie:x:1000:1000:Ilya,,,:/home/feggie:/bin/bash
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+gitlog:x:126:65534::/nonexistent:/usr/sbin/nologin
+gitdaemon:x:127:65534::/nonexistent:/usr/sbin/nologin
+
+
+11) сохранил командой : $ ls -l /etc >> paragraph11
+
+12) 
+команда: $ ls -l /etc | grep "^-" | wc
+92 файла
+
+Вторая группа заданий
+
+Задание 1
+1)
+$ mkdir DirA
+$ mkdir DirB
+
+$ cat > DirA1
+$ cat > DirA2
+
+$ cat > DirB1
+$ cat > DirB2
+
+$ cat DirA/DirA1 DirA/DirA2 DirB/DirB1 DirB/DirB2 > merge.txt
+
+2)
+$ rm -R DirA DirB
+
+Задание 2
+1)
+$ grep feggie /etc/passwd
+вывод : feggie:x:1000:1000:Ilya,,,:/home/feggie:/bin/bash
+2)
+$ date --date=01/01/2021 +%A
+вывод : Пятница
+
+Задание 3
+1)
+$ id feggie > info.txt
+$ ls >> info.txt
+$ ps >> info.txt
+$ date >> info.txt
+
+$ grep -w "info.tpt" info.txt
+вывод: info.txt
+2)
+$ cal 2019 >> cal.txt
+
+Задание 4
+1)
+команда : ls /etc | grep -i '.*\.conf' | head
+вывод:
+adduser.conf
+apg.conf
+appstream.conf
+brltty.conf
+ca-certificates.conf
+debconf.conf
+deluser.conf
+e2scrub.conf
+fprintd.conf
+fuse.conf
+
+2)
+$ chmod u-x task4.2
+$ cd task4.2
+вывод : Отказано в доступе
+
+Задание 5
+1)
+$ > a.txt
+$ chmod u=rw,g=r,o-rwxst  a.txt
+(-rw-r-----)
+2)
+$ ls -l a.txt
+($ ls -l a.txt)
+
+Задание 6
+1)команда: $ tar -cvf Archive.tar a.txt cal.txt digits.txt
+вывод: 
+a.txt
+cal.txt
+digits.txt
+2) $ gzip -9 Archive.tar
+
+Задание 7
+1)
+$ > a.txt
+$ chmod u=rw,g=r,o-rwxst  a.txt
+(-rw-r-----)
+2)
+$ ls -l a.txt
+($ ls -l a.txt)
+2) $ chmod o+w a.txt
+
+Задание 8
+1)команда: $ ls /usr/bin | grep "^[z]"
+вывод:
+zcat
+zcmp
+zdiff
+zdump
+zegrep
+zenity
+zfgrep
+zforce
+zgrep
+zip
+zipcloak
+zipdetails
+zipgrep
+zipinfo
+zipnote
+zipsplit
+zjsdecode
+zless
+zmore
+znew
+2)команда : $ find . -mtime -1
+
+Задание 9
+1) $ find . -user feggie | wc 
+2) $ cat /etc/passwd tail-5 | wc
+
+Задание 10
+1) 
+файл: $ ls -l 10.txt ( -rw-rw-r-- 1 feggie feggie 0 сен 14 20:32 10.txt )
+каталог: $ ls -l ( drwxrwxr-x 2 feggie feggie  4096 сен 14 20:33 10d )
+
+2) команда: $ ls /etc | grep -i '.*\.conf$' | head
+вывод:
+adduser.conf
+apg.conf
+appstream.conf
+brltty.conf
+ca-certificates.conf
+debconf.conf
+deluser.conf
+e2scrub.conf
+fprintd.conf
+fuse.conf
+
+Задание 11
+1) $ chmod o+w a.txt
+
+2)
+$ mv a.txt aaa.txt
+
+$ cat > dop.txt ( 1col 2col)
+$ cat dop.txt > aaa.txt
+
+$ cat aaa.txt
+вывод: 
+1 col 
+2 col
+
+$ rm aaa.txt

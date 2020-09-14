@@ -1,0 +1,14 @@
+uid=1000(feggie) gid=1000(feggie) группы=1000(feggie),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),120(lpadmin),131(lxd),132(sambashare)
+cal.txt
+digits.txt
+info.txt
+merge.txt
+paragrapgh10.2
+paragrapgh11
+paragraph7
+paragraph8
+parahraph10
+    PID TTY          TIME CMD
+   4254 pts/1    00:00:00 bash
+   4274 pts/1    00:00:00 ps
+Вс 13 сен 2020 18:58:32 MSK
