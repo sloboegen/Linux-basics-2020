@@ -4,7 +4,7 @@ import os
 from collections import Counter
 
 
-class Test6(unittest.TestCase):
+class Test8(unittest.TestCase):
     def test1(self):
         p = subprocess.Popen(['sh', 'task06.sh'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         stdout, stderr = p.communicate()
