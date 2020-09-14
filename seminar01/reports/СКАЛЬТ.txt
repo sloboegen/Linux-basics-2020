@@ -1,0 +1,254 @@
+Первая группа заданий.
+
+1) 
+id
+uid=1000(arrias) gid=1000(arrias) группы=1000(arrias),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),120(lpadmin),131(lxd),132(sambashare)
+
+2)
+ date 
+Вс 13 сен 2020 13:45:10 MSK
+
+3) 
+pwd
+/home/arrias/Projects/Linux-basics-2020/seminar01/reports
+
+4) 
+ls, ls -l
+СКАЛЬТ.txt
+итого 0
+-rw-rw-r-- 1 arrias arrias 0 сен 13 13:43 СКАЛЬТ.txt
+
+5)
+mkdir work
+cd work 
+
+6) 
+ввод:
+> digits.txt
+echo "0123456789" > digits.txt
+cat digits.txt
+
+вывод (после cat)
+0123456789
+
+
+7,8,9) 
+7 вопрос подобен 8 (просто меняем 65 -> 2) 
+
+$ START=0
+$ while [ $START -lt 65 ]; do 
+> cat digits.txt >> end_file 
+> let START=START+1
+> done
+$ wc end_file 
+
+вывод:
+65  65 715 end_file
+
+10)
+head -5 /etc/passwd >> first_5.txt 
+tail -5 /etc/passwd >> last_5.txt
+
+11)
+ls -l /etc >> test.txt
+
+12) 
+ls -l /etc | 
+ "^-" | wc 
+92     828    5442
+
+==================================================================================
+
+Задание 1.
+1)
+arrias@arrias-BOHK-WAX9X:~/files/work$ mkdir dirA
+arrias@arrias-BOHK-WAX9X:~/files/work$ mkdir dirB
+arrias@arrias-BOHK-WAX9X:~/files/work$ echo "567" > dirA/output.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ echo "123" > dirA/input.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ echo "123" > dirB/input.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ echo "123" > dirB/output.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ cat dirA/input.txt dirA/output.txt dirB/input.txt dirB/output.txt > sliv.txt
+2) 
+arrias@arrias-BOHK-WAX9X:~/files/work$ rm -R dirA dirB
+
+==================================================================================
+
+Задание 2.
+1) 
+arrias@arrias-BOHK-WAX9X:~/files/work$ 
+ arrias /etc/passwd
+arrias:x:1000:1000:Albert,,,:/home/arrias:/bin/bash
+
+2) 
+arrias@arrias-BOHK-WAX9X:~/files/work$ date --date=01/01/2021 +%A
+Пятница
+
+==================================================================================
+
+Задание 3.
+1,2)
+arrias@arrias-BOHK-WAX9X:~/files/work$ > info.txt 
+arrias@arrias-BOHK-WAX9X:~/files/work$ id >> info.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ ls >> info.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ cal 2019 >> info.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ ps >> info.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ date >> info.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ grep info.txt info.txt
+info.txt
+
+==================================================================================
+
+Задание 4.
+1) 
+arrias@arrias-BOHK-WAX9X:/etc$ ls /etc | grep -i '.*\conf$' | head -10
+adduser.conf
+apg.conf
+appstream.conf
+brltty.conf
+ca-certificates.conf
+dconf
+debconf.conf
+deluser.conf
+e2scrub.conf
+fprintd.conf
+
+2)	
+arrias@arrias-BOHK-WAX9X:~/files/work$ > g.cpp 
+arrias@arrias-BOHK-WAX9X:~/files/work$ g++ g.cpp
+arrias@arrias-BOHK-WAX9X:~/files/work$ chmod u-x g.cpp
+arrias@arrias-BOHK-WAX9X:~/files/work$ g++ g.cpp
+arrias@arrias-BOHK-WAX9X:~/files/work$ ls -l g.cpp
+-rw-rw-r-- 1 arrias arrias 52 сен 13 18:56 g.cpp
+arrias@arrias-BOHK-WAX9X:~/files/work$ chmod u+x g.cpp
+arrias@arrias-BOHK-WAX9X:~/files/work$ ls -l g.cpp
+-rwxrw-r-- 1 arrias arrias 52 сен 13 18:56 g.cpp
+
+==================================================================================
+
+Задание 5.
+
+1) 
+arrias@arrias-BOHK-WAX9X:~/files/work$ > a.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ chmod u-x a.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ chmod g-w a.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ chmod o-r a.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ ls -l a.txt
+-rw-r----- 1 arrias arrias 0 сен 13 19:04 a.txt
+
+2) 
+arrias@arrias-BOHK-WAX9X:~/files/work$ chmod g-r a.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ ls -l a.txt
+-rw------- 1 arrias arrias 0 сен 13 19:04 a.txt
+
+==================================================================================
+
+Задание 6.
+1)
+rrias@arrias-BOHK-WAX9X:~/files/work$ tar -cvf archive.tar a.txt first_5.txt last_5.txt
+a.txt
+first_5.txt
+last_5.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ gzip -9 archive.tar
+2) 
+arrias@arrias-BOHK-WAX9X:~/files/work$ tar -xvf archive.tar.gz 
+a.txt
+sliv.txt
+test.txt
+
+==================================================================================
+
+Задание 7.
+
+1) 
+arrias@arrias-BOHK-WAX9X:~/files/work$ > a.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ chmod u-x a.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ chmod g-w a.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ chmod o-r a.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ ls -l a.txt
+-rw-r----- 1 arrias arrias 0 сен 13 19:04 a.txt
+2)
+arrias@arrias-BOHK-WAX9X:~/files/work$ chmod o+w a.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ chmod u-w a.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ ls -l a.txt
+0 -r------w- 1 arrias arrias 0 сен 13 19:04 a.txt
+
+==================================================================================
+
+Задание 8.
+1)
+arrias@arrias-BOHK-WAX9X:~/files/work$ ls /usr/bin | grep "^[z]"
+zcat
+zcmp
+zdiff
+zdump
+zegrep
+zenity
+zfgrep
+zforce
+zgrep
+zip
+zipcloak
+zipdetails
+zipgrep
+zipinfo
+zipnote
+zipsplit
+zjsdecode
+zless
+zmore
+znew
+2)
+find . -mtime -1
+
+==================================================================================
+
+Задание 9.
+1)
+arrias@arrias-BOHK-WAX9X:~$ find . -user arrias | wc
+  25617   29175 1704860
+2)
+arrias@arrias-BOHK-WAX9X:/$ tail -5 /etc/passwd | wc
+      5      10     320
+
+Задание 10.
+1) 
+arrias@arrias-BOHK-WAX9X:~/files/work$ ls -l a.txt
+-r-------- 1 arrias arrias 0 сен 13 19:04 a.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ mkdir cot
+arrias@arrias-BOHK-WAX9X:~/files/work$ ls -l cot
+drwxrwxr-x 2 arrias arrias  4096 сен 13 20:53 cot
+2)
+arrias@arrias-BOHK-WAX9X:/etc$ ls /etc | grep -i '.*\conf$' | head -10
+adduser.conf
+apg.conf
+appstream.conf
+brltty.conf
+ca-certificates.conf
+dconf
+debconf.conf
+deluser.conf
+e2scrub.conf
+fprintd.conf
+
+==================================================================================
+Задание 11.
+1) 
+arrias@arrias-BOHK-WAX9X:~/files/work$ chmod o+w a.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ chmod u-w a.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ ls -l a.txt
+0 -r------w- 1 arrias arrias 0 сен 13 19:04 a.txt
+2)
+arrias@arrias-BOHK-WAX9X:~/files/work$ mv a.txt aaa.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ echo "hello" >> help.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ cat help.txt >> aaa.txt
+arrias@arrias-BOHK-WAX9X:~/files/work$ cat aaa.txt
+hello
+hello
+
+	
+
+
+
+
+
+
