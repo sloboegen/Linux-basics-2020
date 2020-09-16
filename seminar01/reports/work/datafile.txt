@@ -1,0 +1,15 @@
+uid=1000(mirslav) gid=1000(mirslav) groups=1000(mirslav),4(adm),20(dialout),24(cdrom),27(sudo),30(dip),46(plugdev),120(lpadmin),131(lxd),132(sambashare)
+catalog.txt
+datafile.txt
+digits2.txt
+digits3.txt
+digits.txt
+DirA
+DirB
+FileAB.txt
+headfile.txt
+tailfile.txt
+    PID TTY          TIME CMD
+  37405 pts/0    00:00:00 bash
+  37471 pts/0    00:00:00 ps
+Чт 17 сен 2020 00:46:38 MSK

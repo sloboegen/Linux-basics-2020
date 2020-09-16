@@ -1,0 +1,187 @@
+Первая группа заданий
+
+1)
+id
+Вывод: uid=1000(mirslav) gid=1000(mirslav) groups=1000(mirslav),4(adm),20(dialout),24(cdrom),27(sudo),30(dip),46(plugdev),120(lpadmin),131(lxd),132(sambashare)
+
+2)
+date
+Вывод: Вт 15 сен 2020 21:32:31 MSK
+
+3)
+pwd
+Вывод: /home/mirslav/SPBU/Linux/reports
+
+4)
+mkdir work
+
+5)
+cd /home/mirslav/SPBU/Linux/reports/work
+
+6)
+echo 0123456789 > digits.txt
+
+7)
+cat digits.txt >> digits2.txt
+
+8)
+for n in {1..65}; do cat digits.txt >> digits3.txt; done
+
+9)
+wc digits3.txt
+Вывод: 65  65 715 digits3.txt (65 строк)
+
+10)
+head -5 /etc/passwd > headfile.txt
+tail -5 /etc/passwd > tailfile.txt
+
+11)
+ls -l /etc > catalog.txt
+
+12)
+wc catalog.txt
+Вывод: 225  2030 13100 catalog.txt (225 файлов)
+
+
+Вторая группа заданий
+
+1)
+1.
+mkdir DirA
+mkdir DirB
+cd DirA
+echo произвольное содержимое1 > fileA1.txt
+echo произвольное содержимое2 > fileA2.txt
+cd ~/SPBU/Linux/reports/work/DirB
+echo произвольное содержимое3 > fileB1.txt
+echo произвольное содержимое4 > fileB2.txt
+cat fileB1.txt fileB2.txt ~/SPBU/Linux/reports/work/DirA/fileA1.txt ~/SPBU/Linux/reports/work/DirA/fileA2.txt > ~/SPBU/Linux/reports/work/FileAB.txt
+2.
+rm -R ~/SPBU/Linux/reports/work/DirA
+rm -R ~/SPBU/Linux/reports/work/DirB
+
+2)
+1.
+grep 'mirslav' /etc/passwd
+Вывод: mirslav:x:1000:1000:Miroslava,,,:/home/mirslav:/bin/bash
+2.
+date -d "june 1 2021"
+Вывод: Вт 01 июн 2021 00:00:00 MSK
+
+3)
+1.
+id > datafile.txt
+ls >> datafile.txt
+ps >> datafile.txt
+date >> datafile.txt
+grep "datafile.txt" datafile.txt
+2.
+cal 2019 > calendar2019.txt
+
+4)
+1.
+ls /etc | grep ".conf" | head -10 > conffile.txt
+2.
+chmod o+r ~/SPBU/Linux/reports/work/Prava
+
+5)
+1. 
+chmod u=rw a.txt
+chmod g=r a.txt
+chmod o-rwx a.txt
+2.
+chmod g-r a.txt
+
+6)
+1.
+tar -cvzf tararchive.tar datafile.txt digits.txt digits2.txt
+2.
+tar -xvf tararchive.tar
+
+7)
+1.
+chmod u=rw a.txt
+chmod g=r a.txt
+chmod o-rwx a.txt
+2.
+chmod u-w a.txt
+chmod g-w a.txt
+chmod o+w a.txt
+
+8)
+1.
+ls /usr/bin |grep "^z
+Вывод: 
+zcat
+zcmp
+zdiff
+zdump
+zegrep
+zenity
+zfgrep
+zforce
+zgrep
+zip
+zipcloak
+zipdetails
+zipgrep
+zipinfo
+zipnote
+zipsplit
+zjsdecode
+zless
+zmore
+znew
+2.
+find / -mtime -1
+Вывод: (оочень большой список файлов)
+
+9)
+1.
+find ~ -user mirslav | wc
+Вывод:  26165   26263 2744499
+2.
+head -5 /etc/passwd | wc
+Вывод:       5       5     189 (189 слов)
+
+10)
+1.
+> Prava2.txt 
+mkdir Prava3
+ls -l
+Вывод: 
+-rw------- 1 mirslav mirslav     0 сен 17 01:04 a.txt
+-rw-rw-r-- 1 mirslav mirslav  2418 сен 17 00:48 calendar2019.txt
+-rw-rw-r-- 1 mirslav mirslav 13100 сен 17 00:17 catalog.txt
+-rw-rw-r-- 1 mirslav mirslav   145 сен 17 00:57 conffile.txt
+-rw-rw-r-- 1 mirslav mirslav   383 сен 17 00:46 datafile.txt
+-rw-rw-r-- 1 mirslav mirslav    22 сен 16 22:56 digits2.txt
+-rw-rw-r-- 1 mirslav mirslav   715 сен 16 23:04 digits3.txt
+-rw-rw-r-- 1 mirslav mirslav    11 сен 16 22:41 digits.txt
+-rw-rw-r-- 1 mirslav mirslav   188 сен 17 00:34 FileAB.txt
+-rw-rw-r-- 1 mirslav mirslav   189 сен 17 00:13 headfile.txt
+drwxrwxr-x 2 mirslav mirslav  4096 сен 17 00:59 Prava
+-rw-rw-r-- 1 mirslav mirslav     0 сен 17 01:36 Prava2.txt
+drwxrwxr-x 2 mirslav mirslav  4096 сен 17 01:36 Prava3
+-rw-rw-r-- 1 mirslav mirslav   325 сен 17 00:14 tailfile.txt
+-rw-rw-r-- 1 mirslav mirslav   420 сен 17 01:20 tararchive.tar
+2.
+ls /etc | grep ".conf" | head -10 > conffile.txt
+
+11)
+1.
+chmod ug-r a.txt
+2.
+mv a.txt aaa.txt
+cat >> a.txt
+Пара
+строчек
+текста
+chmod u+r aaa.txt (Для того, чтобы вывести файл)
+cat aaa.txt
+Вывод: 
+Пара
+строчек
+текста
+
+
