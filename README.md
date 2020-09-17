@@ -29,4 +29,4 @@ $ git checkout master
 $ git pull original_repo master
 $ git push origin master
 ```
-# [Таблица с результатами] (https://docs.google.com/spreadsheets/d/1xwO9Dj-AaPK2vbhRpaFZm33hqgvWxgfloKZ23v9yLsk/edit?usp=sharing)
+# [Таблица с результатами](https://docs.google.com/spreadsheets/d/1xwO9Dj-AaPK2vbhRpaFZm33hqgvWxgfloKZ23v9yLsk/edit?usp=sharing)
