@@ -11,9 +11,9 @@ jobs:
     steps:
       - id: step1
         run: |
-          chmod +x ./seminar02/checker.py
-          i=()
-          echo "::set-output name=id::$(./seminar02/checker.py)"
+          i=$(python3 /seminar02/checker.py)
+          echo "$i"
+          echo "::set-output name=id::$i"
   job1:
     runs-on: ubuntu-latest
     # Map a step output to a job output
