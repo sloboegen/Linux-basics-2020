@@ -5,7 +5,7 @@ import os
 
 class Test4(unittest.TestCase):
     def test1(self):
-        p = subprocess.Popen(['sh', 'task04.sh'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        p = subprocess.Popen(['bash', 'task04.sh'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         stdout, stderr = p.communicate()
         stdout = stdout.decode('utf-8')
         
