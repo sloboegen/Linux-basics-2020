@@ -1,9 +1,19 @@
 name: gsheet.action test
-on: 
-  pull_request:
-    types: [opened, reopened, edited]
+on: [push]
+#   pull_request:
+#     types: [opened, reopened, edited]
 
 jobs:
+  job0:
+    runs-on: ubuntu-latest
+    outputs:
+      output_test_number: ${{ steps.step1.outputs.id }}
+    steps:
+      - id: step1
+        run: |
+          chmod +x ./seminar02/checker.py
+          i=()
+          echo "::set-output name=id::$(./seminar02/checker.py)"
   job1:
     runs-on: ubuntu-latest
     # Map a step output to a job output
@@ -15,7 +25,7 @@ jobs:
         run: echo "::set-output name=id::\"$(git log -1 --pretty=format:'%an')\""
   job2:
     runs-on: ubuntu-latest
-    needs: job1
+    needs: [job0, job1]
     outputs:
       output_id_number: ${{ steps.step1.outputs.id }}
     steps:
@@ -39,6 +49,9 @@ jobs:
           cmd=$(echo "${RESULTS}" | jq ".results[0].result.rawData")
           gitid=\"${{needs.job1.outputs.output_id}}\"
           for i in {1..60}
+          test_succ=${{needs.job0.outputs.output_test_number}}
+          echo "succ tests:"
+          echo "$test_succ"
           do
             t=$(echo "${cmd}" | jq ".[$i][0]")
             echo "$t"
@@ -46,7 +59,7 @@ jobs:
             if [ "$t" = "$gitid" ]; then
               echo "FOUND"
               echo "$i"
-              j="[{ \"command\": \"updateData\", \"args\": {\"worksheetTitle\": \"Sheet1\", \"data\": [[\"yes\"]], \"minCol\": 2, \"minRow\": $((i+1)) }} ]"
+              j="[{ \"command\": \"updateData\", \"args\": {\"worksheetTitle\": \"Sheet1\", \"data\": [[\"$(test_succ)\"]], \"minCol\": 2, \"minRow\": $((i+1)) }} ]"
               echo "$j"
               echo "::set-output name=id::$j"
             else
