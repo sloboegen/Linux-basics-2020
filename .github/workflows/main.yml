@@ -11,11 +11,10 @@ jobs:
     steps:
       - id: step1
         run: |
-          echo $(pwd)
-          echo $(ls)
-#         i=$(python3 ../../seminar02/checker.py)
-#         echo "$i"
-#         echo "::set-output name=id::$i"
+          cd seminar02
+          i=$(python3 checker.py)
+          echo "$i"
+          echo "::set-output name=id::$i"
   job1:
     runs-on: ubuntu-latest
     # Map a step output to a job output
