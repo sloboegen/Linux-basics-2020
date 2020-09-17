@@ -11,9 +11,9 @@
 
 Чтобы получить задания на новую практику алгоритм такой:
 
-``` git remote add original_repo https://github.com/sloboegen98/Linux-basics-2020 ```
+``` git remote add original_repo https://github.com/danyaberezun/Linux-basics-2020 ```
 
-``` original_repo``` - это имя для remote-репозитория (имя может быть любым), а ```https://github.com/sloboegen98/Linux-basics-2020``` - ссылка на него
+``` original_repo``` - это имя для remote-репозитория (имя может быть любым), а ```https://github.com/danyaberezun/Linux-basics-2020``` - ссылка на него
 
 Теперь, чтобы получить свежие задания, вам необходимо сделать следующее:
 
