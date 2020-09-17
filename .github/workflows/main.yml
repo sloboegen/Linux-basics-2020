@@ -1,0 +1,67 @@
+name: gsheet.action test
+on: push
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    # Map a step output to a job output
+    outputs:
+      output_id: ${{ steps.step1.outputs.id }}
+    steps:
+      - uses: actions/checkout@v1
+      - id: step1
+        run: echo "::set-output name=id::\"$(git log -1 --pretty=format:'%an')\""
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    outputs:
+      output_id_number: ${{ steps.step1.outputs.id }}
+    steps:
+      - id: 'get_worksheet'
+        uses: jroehl/gsheet.action@v1.0.0
+        with:
+          spreadsheetId: ${{secrets.SPREADSHEET_ID}}
+          commands: | # list of commands, specified as a valid JSON string
+            [
+              { "command": "getData", "args": { "worksheetTitle": "generetedSheet", "minCol": 1, "maxCol": 1 } }
+            ]
+        env:
+          GSHEET_CLIENT_EMAIL: ${{ secrets.SERVICE_EMAIL }}
+          GSHEET_PRIVATE_KEY: ${{ secrets.SERVICE_KEY }}
+      - id: step1
+        name: dump results
+        env:
+          #  the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
+          RESULTS: ${{ steps.get_worksheet.outputs.results }}
+        run: |
+          cmd=$(echo "${RESULTS}" | jq ".results[0].result.rawData")
+          gitid=\"${{needs.job1.outputs.output_id}}\"
+          for i in {1..6}
+          do
+            t=$(echo "${cmd}" | jq ".[$i][0]")
+            echo "$t"
+            echo "$gitid"
+            if [ "$t" = "$gitid" ]; then
+              echo "FOUND"
+              echo "$i"
+              j="[{ \"command\": \"updateData\", \"args\": {\"worksheetTitle\": \"generetedSheet\", \"data\": [[\"yes\"]], \"minCol\": 2, \"minRow\": $((i+1)) }} ]"
+              echo "$j"
+              echo "::set-output name=id::$j"
+            else
+              echo "Strings are not equal."
+            fi
+          done
+          echo "$gitid"
+#        echo "::set-output name=id::$i"
+  job3:
+    runs-on: ubuntu-latest
+    needs: job2
+    steps:
+      - id: 'update_worksheet'
+        uses: jroehl/gsheet.action@v1.0.0
+        with:
+          spreadsheetId: ${{secrets.SPREADSHEET_ID}}
+          commands: ${{needs.job2.outputs.output_id_number}}
+        env:
+          GSHEET_CLIENT_EMAIL: ${{ secrets.SERVICE_EMAIL }}
+          GSHEET_PRIVATE_KEY: ${{ secrets.SERVICE_KEY }}
