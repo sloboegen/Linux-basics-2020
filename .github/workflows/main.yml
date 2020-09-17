@@ -1,7 +1,7 @@
 name: gsheet.action test
-on: [push]
-#   pull_request:
-#     types: [opened, reopened, edited]
+on: # [push]
+  pull_request:
+    types: [opened, reopened, edited]
 
 jobs:
   job1:
