@@ -19,12 +19,14 @@ jobs:
           ref: refs/pull/${{ github.event.pull_request.number }}/head
       - id: step1
         run: |
-          echo ${{ github.event.pull_request.user.login }}
           cd seminar02
           re=$(python3 checker.py)
           echo "$re"
           echo "::set-output name=res::$re"
-          echo "::set-output name=id::\"$(git log --perl-regexp --author='^((?!danyaberezun).*)$' -1 --pretty=format:'%an')\""
+          login=${{ github.event.pull_request.user.login }}
+          echo "$login"
+          echo "::set-output name=id::\"$login\""
+#          echo "::set-output name=id::\"$(git log --perl-regexp --author='^((?!danyaberezun).*)$' -1 --pretty=format:'%an')\""
   job2:
     runs-on: ubuntu-latest
     needs: job1
