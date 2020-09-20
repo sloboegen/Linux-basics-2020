@@ -15,9 +15,9 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 2
+          ref: ${{ github.ref }}
       - id: step1
         run: |
-          git checkout HEAD^
           cd seminar02
           re=$(python3 checker.py)
           echo "$re"
