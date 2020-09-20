@@ -12,9 +12,10 @@ jobs:
       output_id: ${{ steps.step1.outputs.id }}
       output_result: ${{ steps.step1.outputs.res }}
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - id: step1
         run: |
+          git checkout HEAD^
           cd seminar02
           re=$(python3 checker.py)
           echo "$re"
