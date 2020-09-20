@@ -18,6 +18,8 @@ jobs:
           ref: ${{ github.head_ref }}
       - id: step1
         run: |
+          echo ${{ github.event.pull_request.base.ref }}
+          echo ${{ github.event.pull_request.head.ref }}
           cd seminar02
           re=$(python3 checker.py)
           echo "$re"
