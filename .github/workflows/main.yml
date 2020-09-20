@@ -13,6 +13,8 @@ jobs:
       output_result: ${{ steps.step1.outputs.res }}
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
       - id: step1
         run: |
           git checkout HEAD^
