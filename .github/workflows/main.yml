@@ -14,12 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 2
-          ref: ${{ github.head_ref }}
+#          fetch-depth: 2
+#          ref: ${{ github.head_ref }}
+          ref: refs/pull/${{ github.event.pull_request.number }}/head
       - id: step1
         run: |
-          echo ${{ github.event.pull_request.base.ref }}
-          echo ${{ github.event.pull_request.head.ref }}
           cd seminar02
           re=$(python3 checker.py)
           echo "$re"
