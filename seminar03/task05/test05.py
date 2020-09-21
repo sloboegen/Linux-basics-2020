@@ -3,7 +3,7 @@ import subprocess
 import os
 
 
-class Test4(unittest.TestCase):
+class Test5(unittest.TestCase):
     def delete_blank(self, filename: str):
         result = []
 
