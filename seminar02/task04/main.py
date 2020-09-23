@@ -1,8 +1,8 @@
-# read a
 a = int(input())
-# read b
 b = int(input())
+# rtigrigrttor
+# egrigejrgerpger
 word = '# Not a comment'
-# result
-# sum of a b
 print(a + b)
+# rtlhkrthk
+print('abvgd')
