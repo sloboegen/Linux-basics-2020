@@ -1,1 +1,3 @@
-#! /bin/bash
+egrep -wno "\"https://.*\"" urls.txt
+
+

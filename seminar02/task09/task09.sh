@@ -1,1 +1,2 @@
-#! /bin/bash
+egrep -wo ".*@.*\..*" emails.txt
+
