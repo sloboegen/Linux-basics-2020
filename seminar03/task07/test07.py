@@ -3,7 +3,7 @@ import subprocess
 import os
 
 
-class Test6(unittest.TestCase):
+class Test7(unittest.TestCase):
     def print_wc_in_line(self, filename: str):
         result = []
         with open(filename, 'r') as f:
@@ -17,24 +17,20 @@ class Test6(unittest.TestCase):
         return result
 
 
-    def bash_result(self, script_name: str, filename: str):
+    def bash_result(self, script_name: str):
         print(script_name)
-        p = subprocess.Popen(['bash', script_name, filename], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        p = subprocess.Popen(['bash', script_name, '.'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         stdout, _ = p.communicate()
-        stdout = stdout.decode('utf-8').split()
+        stdout = filter(None, stdout.decode('utf-8').split('\n'))
 
-        return stdout
+        return set(stdout)
         
 
     def test1(self):
-        script = 'task06.sh'
-        filename = 'file.txt'
+        script = 'task07.sh'
 
-        bash = self.bash_result(script, filename)
-        gold = self.print_wc_in_line(filename)
-
-        print(bash)
-        print(gold)
+        bash = self.bash_result(script)
+        gold = set(['42', 'The answer is 42', 'Hello from dirB', 'Hi from dirB and dir!!!'])
 
         self.assertEqual(bash, gold)
 
