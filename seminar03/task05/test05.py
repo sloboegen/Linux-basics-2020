@@ -22,7 +22,7 @@ class Test5(unittest.TestCase):
         stdout, _ = p.communicate()
         stdout = stdout.decode('utf-8').split('\n')
 
-        return stdout
+        return stdout[:-1]
         
 
     def test1(self):
@@ -30,9 +30,7 @@ class Test5(unittest.TestCase):
         bash = self.bash_result(script, filename='blank.txt')
         gold = self.delete_blank(filename='blank.txt')
 
-        print(gold)
-
-        self.assertEquals(bash, gold)
+        self.assertEqual(bash, gold)
 
 
 if __name__ == '__main__':
