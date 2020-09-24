@@ -19,7 +19,7 @@ jobs:
           ref: refs/pull/${{ github.event.pull_request.number }}/head
       - id: step1
         run: |
-          cd seminar02
+          cd seminar03
           re=$(python3 checker.py)
           echo "$re"
           echo "::set-output name=res::$re"
@@ -71,7 +71,7 @@ jobs:
           done
           if [[ $j -eq 0 ]]
           then
-            j="[{ \"command\": \"appendData\", \"args\": {\"worksheetTitle\": \"Sheet1\", \"data\": [["$gitid", "$result", "$result"]], \"minCol\": 1 }} ]"
+            j="[{ \"command\": \"appendData\", \"args\": {\"worksheetTitle\": \"Sheet1\", \"data\": [["$gitid", "$result", "$result"]], \"minCol\": 4 }} ]"
             echo "::set-output name=id::$j"
           fi
           echo $j
