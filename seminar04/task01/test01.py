@@ -7,12 +7,12 @@ class Test1(unittest.TestCase):
     def check_stderr(self, command: str, arg: str):
         p = subprocess.Popen(['make', arg], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         _, stderr = p.communicate()
-        return stderr is None
+        return (not stderr)
 
     def check_stderr_time(self, program: str):
          p = subprocess.Popen(['make', 'time', program], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         _, stderr = p.communicate()
-        return stderr is None
+        return (not stderr)
 
 
     def test1(self):
