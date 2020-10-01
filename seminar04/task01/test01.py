@@ -2,6 +2,7 @@ import unittest
 import subprocess
 import os
 
+from random import randint
 
 class Test1(unittest.TestCase):
     def check_stderr(self, command: str, arg: str):
@@ -10,11 +11,15 @@ class Test1(unittest.TestCase):
         return (not stderr)
 
     def check_stderr_time(self, program: str):
-         p = subprocess.Popen(['make', 'time', program], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        num = randint(1, 40)
+        args = f'ARGS=\"./{program} {num}\"'
+
+        p = subprocess.Popen(f'make time {args}', stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
         _, stderr = p.communicate()
-        return (not stderr)
+        stderr = stderr.decode("utf-8")
 
-
+        return not ("error" in stderr.lower())
+        
     def test1(self):
         self.assertTrue(self.check_stderr('make', 'all'))
         self.assertTrue(self.check_stderr('make', 'build_slow'))
