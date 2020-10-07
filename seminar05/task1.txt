@@ -1,0 +1,13 @@
+# print your command here
+
+a. git init ...
+
+b.
+
+c.
+
+d.
+
+e.
+
+f.
