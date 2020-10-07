@@ -1,0 +1,278 @@
+First group of exercise
+1) Проверить, какой пользователь работает в данный момент ($id)
+Solution:
+aspan@ubuntu:~$ id
+uid=1000(aspan) gid=1000(aspan) groups=1000(aspan),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),120(lpadmin),131(lxd),132(sambashare)
+
+2) Выяснить текущее время ($date)
+Solution:
+aspan@ubuntu:~$ date
+Thu 01 Oct 2020 09:57:33 PM +06
+
+3) Определить текущий каталог ($pwd)
+Solution:
+aspan@ubuntu:~$ pwd
+/home/aspan
+
+4) Вывести содержимое каталога в кратком, подробном виде и .* файлы ($ls, $ls -l ,$ls -a)
+Solution:
+aspan@ubuntu:~$ ls
+Desktop    Downloads  Musulmanov.txt  Pictures  reports  Templates
+Documents  Music      newfile.txt     Public    snap     Videos
+
+aspan@ubuntu:~$ ls -l
+total 48
+drwxr-xr-x 2 aspan aspan 4096 Sep 30 22:03 Desktop
+drwxr-xr-x 2 aspan aspan 4096 Oct  1 18:19 Documents
+drwxr-xr-x 2 aspan aspan 4096 Sep 30 22:03 Downloads
+drwxr-xr-x 2 aspan aspan 4096 Sep 30 22:03 Music
+drwxrwxr-x 2 aspan aspan 4096 Oct  1 16:31 Musulmanov.txt
+-rw-rw-r-- 1 aspan aspan    1 Oct  1 18:31 newfile.txt
+drwxr-xr-x 2 aspan aspan 4096 Sep 30 22:03 Pictures
+drwxr-xr-x 2 aspan aspan 4096 Sep 30 22:03 Public
+drwxrwxr-x 2 aspan aspan 4096 Oct  1 18:23 reports
+drwxr-xr-x 3 aspan aspan 4096 Sep 30 22:10 snap
+drwxr-xr-x 2 aspan aspan 4096 Sep 30 22:03 Templates
+drwxr-xr-x 2 aspan aspan 4096 Sep 30 22:03 Videos
+
+aspan@ubuntu:~$ ls -a
+.              Desktop    Musulmanov.txt  .ssh
+..             Documents  newfile.txt     .sudo_as_admin_successful
+.bash_history  Downloads  Pictures        Templates
+.bash_logout   .gnupg     .profile        Videos
+.bashrc        .local     Public
+.cache         .mozilla   reports
+.config        Music      snap
+
+5) Создать каталог work и перейти в него (mkdir, cd). Все дальнейшие действия, если не указано обратное, следует выполнять в этом каталоге.
+Solution:
+aspan@ubuntu:~$ mkdir work
+aspan@ubuntu:~$ cd work
+
+6) Создать файл digits.txt, записать в него все десятичные цифры, вывести содержимое (echo, cat).
+Solution:
+aspan@ubuntu:~/work$ cat > digits.txt
+aspan@ubuntu:~/work$ echo 0 1 2 3 4 5 6 7 8 9 > /home/aspan/work/digits.txt
+aspan@ubuntu:~/work$ cat digits.txt
+0 1 2 3 4 5 6 7 8 9
+
+7) Создать файл, содержащий две строки из цифр (cat).
+Solution:
+aspan@ubuntu:~/work$ echo "1" > ex7start
+aspan@ubuntu:~/work$ START=0
+aspan@ubuntu:~/work$ while [ $START -lt 2 ]; do
+>         cat ex7start >> ex7finish
+>         let START=START+1
+> done
+
+8) Создать файл, содержащий 65 строк из цифр (cat).
+Solution:
+aspan@ubuntu:~/work$ echo "1" > ex8start
+aspan@ubuntu:~/work$ START=0
+aspan@ubuntu:~/work$ while [ $START -lt 65 ]; do
+>         cat ex8start >> ex8finish
+>         let START=START+1
+> done
+
+9) Проверить количество строк в созданном файле (wc).
+Solution:
+aspan@ubuntu:~/work$ wc -l ex7finish
+2 ex7finish
+aspan@ubuntu:~/work$ wc -l ex8finish
+65 ex8finish
+
+10) Сохранить в два файла первые пять и последние пять строк файла /etc/passwd (head -5, tail -5).
+Solution:
+aspan@ubuntu:~/work$ head -5 /etc/passwd > ex10first5
+aspan@ubuntu:~/work$ tail -5 /etc/passwd > ex10last5
+
+11) Сохранить в файл подробный список файлов каталога /etc (ls -l).
+Solution:
+aspan@ubuntu:~/work$ ls -l /etc > ex11
+
+12) Определить количество файлов в каталоге /etc.
+Solution:
+aspan@ubuntu:~/work$ ls /etc | wc -l
+229
+
+Second group of exercise
+Exercise 1
+1.1) Создать два каталога DirA и DirB, создать в каждом из них по два файла с произвольным содержимым. Слить все четыре файла в один одной командой (mkdir, cat).
+Solution:
+aspan@ubuntu:~$ mkdir DirB
+aspan@ubuntu:~$ mkdir DirA
+aspan@ubuntu:~$ cd DirA
+aspan@ubuntu:~/DirA$ cat > DirAA
+1
+aspan@ubuntu:~/DirA$ cat > DirAB
+2
+aspan@ubuntu:~/DirA$ cd
+aspan@ubuntu:~$ cd DirB
+aspan@ubuntu:~/DirB$ cat > DirBA
+3
+aspan@ubuntu:~/DirB$ cat > DirBB
+4
+aspan@ubuntu:~/DirB$ cd
+aspan@ubuntu:~$ cat DirA/DirAA DirA/DirAB DirB/DirBA DirB/DirBB > DirAB
+
+1.2) Удалить каталоги DirA и DirB, не удаляя их содержимое перед удалением.
+Solution:
+aspan@ubuntu:~$ mv -b /home/aspan/DirA/* /home/aspan/
+aspan@ubuntu:~$ mv -b /home/aspan/DirB/* /home/aspan/
+aspan@ubuntu:~$ rmdir /home/aspan/DirA
+aspan@ubuntu:~$ rmdir /home/aspan/DirB
+
+Exercise 2
+2.1) Вывести строку файла /etc/passwd, соответствующую текущему пользователю (grep).
+Solution:
+aspan@ubuntu:~$ grep $(whoami) /etc/passwd
+aspan:x:1000:1000:Aspan,,,:/home/aspan:/bin/bash
+
+
+2.2) Определите, каким днём недели будет 1-го января 2021 года (date).
+Solution:
+aspan@ubuntu:~$ date +%A -d20210101
+Friday
+
+Exercise 3
+3.1) Сохранить в текстовый файл информацию о текущем пользователе (id), о подробном содержимом текущего каталога (ls), о запущенных данным пользователем процессах (ps), о текущей дате и времени (date). Пользуясь командой grep, выделить из этого файла строку, соответствующую созданному файлу в содержимом каталога
+Solution:
+aspan@ubuntu:~$ (id; ls; ps; date) > info.txt
+aspan@ubuntu:~$ grep -o info.txt info.txt
+info.txt
+
+3.2) Сохранить в текстовый файл календарь на 2019 год cal.
+Solution:
+aspan@ubuntu:~$ cal 2019 > calendar2019.txt
+
+Exercise 4
+4.1) Вывести имена первых десяти файлов каталога /etc с расширением .conf (ls, grep, head).
+Solution:
+aspan@ubuntu:~$ ls /etc | grep -i '.*\.conf$' | head
+adduser.conf
+apg.conf
+appstream.conf
+brltty.conf
+ca-certificates.conf
+debconf.conf
+deluser.conf
+e2scrub.conf
+fprintd.conf
+fuse.conf
+
+4.2) Продемонстрировать, что означает "право на исполнение" для каталога. Для этого создайте каталог, измените его атрибут, примените к нему команды, позволяющие продемонстрировать в действии "право на исполнение".
+Solution:
+aspan@ubuntu:~$ mkdir atribut; chmod 000 atribut
+aspan@ubuntu:~$ ls -l atribut
+ls: cannot open directory 'atribut': Permission denied
+aspan@ubuntu:~$ chmod 777 atribut
+aspan@ubuntu:~$ ls -l atribut
+total 0
+
+Exercise 5
+5.1) Создать файл a.txt. Изменить права доступа к нему так, чтобы у владельца были права на чтение и запись, у группы-владельца — только на чтение, у остальных — никаких прав (chmod).
+Solution:
+aspan@ubuntu:~$ >a.txt
+aspan@ubuntu:~$ chmod 640 a.txt
+
+5.2) Снять право на чтение файла a.txt у группы-владельца.
+Solution:
+aspan@ubuntu:~$ chmod 600 a.txt
+
+Exercise 6
+6.1) Собрать любые три файла в tar-архив и сжать его программой gzip.
+Solution:
+aspan@ubuntu:~$ tar -czvf file.tar.gz DirAB DirBA DirBB
+DirAB
+DirBA
+DirBB
+
+6.2) Распаковать архив из предыдущего пункта.
+Solution:
+aspan@ubuntu:~$ tar xvzf file.tar.gz
+DirAB
+DirBA
+DirBB
+
+Exercise 7
+7.1) Создать файл a.txt. Изменить права доступа к нему так, чтобы у владельца были права на чтение и запись, у группы-владельца — только на чтение, у остальных — никаких прав (chmod)
+Solution:
+Solution you can see in exercise 5.1
+
+7.2) Добавить право на запись в файл всем пользователям системы кроме владельца и группы.
+Solution:
+aspan@ubuntu:~$ chmod 442 a.txt
+
+Exercise 8
+8.1) Вывести список всех файлов каталога /usr/bin, имя которых начинается с буквы z.
+Solution:
+aspan@ubuntu:~$ ls /usr/bin | grep ^z
+zcat
+zcmp
+zdiff
+zdump
+zegrep
+zenity
+zfgrep
+zforce
+zgrep
+zip
+zipcloak
+zipdetails
+zipdetails.bundled
+zipgrep
+zipinfo
+zipnote
+zipsplit
+zjsdecode
+zless
+zmore
+znew
+
+
+8.2) Составить список всех файлов компьютера, изменённых за последние сутки (find).
+Solution:
+aspan@ubuntu:~$ find -mtime -1 -ls > allfilethatwasmodified
+
+Exercise 9
+9.1) Определить, сколько файлов системы принадлежит пользователю student (find, wc).
+Solution:
+aspan@ubuntu:~$ find /home -group aspan | wc -l
+4260
+
+9.2) Выведите на консоль последние 5 строк файла /etc/passwd и посчитайте число слов в этом выводе (wc).
+Solution:
+aspan@ubuntu:~$ tail -5 /etc/passwd
+pulse:x:123:128:PulseAudio daemon,,,:/var/run/pulse:/usr/sbin/nologin
+gnome-initial-setup:x:124:65534::/run/gnome-initial-setup/:/bin/false
+gdm:x:125:130:Gnome Display Manager:/var/lib/gdm3:/bin/false
+aspan:x:1000:1000:Aspan,,,:/home/aspan:/bin/bash
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+aspan@ubuntu:~$ tail -5 /etc/passwd | wc -c
+317
+
+Exercise 10
+10.1) Узнайте, какими правами доступа обладают вновь создаваемые файлы и каталоги (т. е. следует создать новый файл и новый каталог, и посмотреть для них права доступа).
+Solution:
+aspan@ubuntu:~$ (>newfile; mkdir newfile2)
+aspan@ubuntu:~$ ls -l newfile; ls -l newfile2
+-rw-rw-r-- 1 aspan aspan 0 Oct  3 00:52 newfile
+total 0
+
+10.2) Выведите имена первых десяти файлов каталога /etc с расширением .conf (ls, grep, head).
+Solution:
+You can see in exercise 4.1
+
+Exercise 11
+11.1) Создать файл a.txt. Добавить право на запись этого файла всем пользователям системы кроме владельца и группы.
+Solution:
+aspan@ubuntu:~$ >a.txt; chmod 446 a.txt
+
+11.2) Переименуйте файл a.txt в aaa.txt (если не получится, сначала измените права на доступ к этому файлу). При помощи команды cat допишите в конец этого файла пару строк. Выведите на консоль aaa.txt. Удалите файл.
+Solution:
+aspan@ubuntu:~$ mv a.txt aaa.txt
+aspan@ubuntu:~$ cat > a.txt
+dsdsa
+aspan@ubuntu:~$ cat aaa.txt
+dsdsa
+aspan@ubuntu:~$ rm aaa.txt
