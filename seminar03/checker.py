@@ -18,14 +18,14 @@ for i in range(1, TASK_COUNT + 1):
     cur = 0
     if findWholeWord('OK')(stderr) is not None:
         cur += 1
-    
+
     if findWholeWord('OK')(stdout) is not None:
         cur += 1
-    
+
     if cur > 0:
         completed_taks += 1
-    
+    print(completed_taks)
     os.chdir('../')
-        
+
 print(completed_taks)
-    
+
