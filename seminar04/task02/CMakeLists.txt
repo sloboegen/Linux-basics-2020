@@ -1,1 +1,17 @@
 # print your code here
+cmake_minimum_required(VERSION 3.10)
+project(Fib)
+add_executable(Fib src/main.cpp src/fast.cpp)
+
+enable_testing()
+function(testFib name input expected)
+    add_test(NAME ${name} COMMAND Fib ${input})
+  set_tests_properties(${name} PROPERTIES PASS_REGULAR_EXPRESSION ${expected})
+endfunction(testFib)
+testFib("fib_1" 0 "1")
+testFib("fib_3" 1 "2")
+testFib("fib_4" 2 "3")
+testFib("fib_5" 3 "5")
+testFib("fib_10" 10 "89")
+testFib("fib_17" 29 "2584")
+testFib("fib_27" 39 "317811")
