@@ -13,4 +13,3 @@ time: build_fast build_slow
         time ./$(ARGS)
 clean:
         rm -f fast slow
-~                        
