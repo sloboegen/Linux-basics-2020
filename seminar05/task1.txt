@@ -1,12 +1,44 @@
 # print your command here
 
-a. git init ...
+a. git init tmp
 
 b.
+touch bio.md && echo "Hello" > bio.md
+touch main.cpp
+
+main.cpp:
+```
+#include <iostream> 
+
+using namespace std; 
+int main() {
+	cout << "Hello";
+	return 0;
+}
+```
 
 c.
+makefile:
+```
+SHELL := /bin/bash 
+
+all: build run clean
+
+build: main.cpp
+	g++ -std=c++17 main_fast -o run_main
+
+run: build
+	./run_main
+
+clean:
+	rm run
+
+.PHONY all clean
+```
 
 d.
+
+
 
 e.
 
