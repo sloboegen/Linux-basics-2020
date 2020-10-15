@@ -46,6 +46,28 @@ git add main.cpp
 git commit -am "2"
 git add main.cpp
 git commit -am "3"
+
 e.
 
+git checkout 084b343f93abd6216e3fd67f03f1891f673cdcc4
+git switch -c cmake
+rm Makefile
+touch CMakeLists.txt
+
+CMakeLists:
+```
+cmake_minimum_required(VERSION 3.16)
+project(Proj)
+
+set(CMAKE_CXX_STANDARD 17)
+set(SRC main.cpp)
+set(RUN main)
+add_executable(${RUN} ${SRC})
+```
+
 f.
+
+git add .
+git checkout hw5-dev
+git add .
+git commit -am "Merged to hw5-dev"
