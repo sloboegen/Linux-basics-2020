@@ -35,11 +35,17 @@ clean:
 
 .PHONY all clean
 ```
+git add .
+git commit -am "Add Makefile"
 
 d.
 
-
-
+git add main.cpp
+git commit -am "1"
+git add main.cpp
+git commit -am "2"
+git add main.cpp
+git commit -am "3"
 e.
 
 f.
