@@ -1,0 +1,38 @@
+//Все использованные файлы приложены в папке//
+a. git init tmp
+
+b.
+gedit bio.md
+gedit main.cpp
+
+c.
+gedit makefile:
+git add .
+git commit -am "It is a commit!"
+
+d.
+
+gedit main.cpp //вписали в main.cpp комент //
+git add main.cpp
+git commit -am "It is a commit!"
+gedit main.cpp //вписали в main.cpp комент //
+git add main.cpp
+git commit -am "It is a commit!"
+gedit main.cpp //вписали в main.cpp комент //
+git add main.cpp
+git commit -am "It is a commit!"
+
+e.
+
+git rev-list --max-parents=0 HEAD
+git checkout 8880de2fa2481e24a3eaf2776147bde2fd58c57e
+git switch -c cmake
+rm Makefile
+gedit CMakeLists.txt
+
+f.
+
+git add .
+git checkout hw5-dev
+git add .
+git commit -am "It is a commit!"
