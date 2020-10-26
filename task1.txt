@@ -1,1 +1,11 @@
 # print your commands
+feggie@feggie-NBLK-WAX9X:~/Linux-basics-2020$ sudo docker run -it haskell
+[sudo] пароль для feggie: 
+GHCi, version 8.10.2: https://www.haskell.org/ghc/  :? for help
+Prelude> 2+3
+5
+Prelude> print "Hello world"
+"Hello world"
+Prelude> 
+Leaving GHCi.
+feggie@feggie-NBLK-WAX9X:~/Linux-basics-2020$ 
