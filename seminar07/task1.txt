@@ -1,0 +1,9 @@
+$ sudo docker run -it haskell
+[sudo] пароль для lapen:
+GHCi, version 8.10.2: https://www.haskell.org/ghc/  :? for help
+Prelude> 2+3
+5
+Prelude> print "Hello world"
+"Hello world"
+Prelude>
+Leaving GHCi.
