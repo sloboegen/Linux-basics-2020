@@ -1,1 +1,84 @@
-# print your commands
+monic@monic-VivoBook-ASUSLaptop-X712FBC-A712FB:~/Linux(I_semestr)/Linux-basics-2020$ sudo docker build .
+Sending build context to Docker daemon  1.524MB
+Step 1/2 : FROM ubuntu:latest
+latest: Pulling from library/ubuntu
+6a5697faee43: Pull complete 
+ba13d3bc422b: Pull complete 
+a254829d9e55: Pull complete 
+Digest: sha256:fff16eea1a8ae92867721d90c59a75652ea66d29c05294e6e2f898704bdb8cf1
+Status: Downloaded newer image for ubuntu:latest
+ ---> d70eaf7277ea
+Step 2/2 : COPY src/server.py server.py
+ ---> 9e54579d91ac
+Successfully built 9e54579d91ac
+monic@monic-VivoBook-ASUSLaptop-X712FBC-A712FB:~/Linux(I_semestr)/Linux-basics-2020$ sudo docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+<none>              <none>              9e54579d91ac        39 seconds ago      72.9MB
+ubuntu              latest              d70eaf7277ea        5 days ago          72.9MB
+haskell             latest              f334c5207457        5 days ago          1.5GB
+monic@monic-VivoBook-ASUSLaptop-X712FBC-A712FB:~/Linux(I_semestr)/Linux-basics-2020$ sudo docker run
+"docker run" requires at least 1 argument.
+See 'docker run --help'.
+
+Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+Run a command in a new container
+monic@monic-VivoBook-ASUSLaptop-X712FBC-A712FB:~/Linux(I_semestr)/Linux-basics-2020$ sudo docker run --rm -d -p 65432:65432 9e54579d91ac python3 server.py
+e0858088aa13ddb510e0deb794b5c6a5090bd4ea44f9adcac8546f45fbde25b8
+docker: Error response from daemon: OCI runtime create failed: container_linux.go:349: starting container process caused "exec: \"python3\": executable file not found in $PATH": unknown.
+monic@monic-VivoBook-ASUSLaptop-X712FBC-A712FB:~/Linux(I_semestr)/Linux-basics-2020$ sudo docker build .
+Sending build context to Docker daemon  1.524MB
+Step 1/3 : FROM ubuntu:latest
+ ---> d70eaf7277ea
+Step 2/3 : RUN apt install -y python3
+ ---> Running in 9f8b62ea88d9
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+E: Unable to locate package python3
+The command '/bin/sh -c apt install -y python3' returned a non-zero code: 100
+monic@monic-VivoBook-ASUSLaptop-X712FBC-A712FB:~/Linux(I_semestr)/Linux-basics-2020$ sudo docker build .
+Sending build context to Docker daemon  1.524MB
+Step 1/2 : FROM python:3.6
+3.6: Pulling from library/python
+e4c3d3e4f7b0: Already exists 
+101c41d0463b: Pull complete 
+8275efcd805f: Pull complete 
+751620502a7a: Pull complete 
+0a5e725150a2: Pull complete 
+9ab4bf1101f3: Pull complete 
+9ba108bf0aed: Pull complete 
+eac75d8e87c4: Pull complete 
+67fa621f5716: Pull complete 
+Digest: sha256:af607142914f5c56ed941aa32c005b9c11a66898e31c2f09e6cfe10d2eefd9e8
+Status: Downloaded newer image for python:3.6
+ ---> 170e243861ec
+Step 2/2 : COPY src/server.py server.py
+ ---> 06b99f1ea8a6
+Successfully built 06b99f1ea8a6
+monic@monic-VivoBook-ASUSLaptop-X712FBC-A712FB:~/Linux(I_semestr)/Linux-basics-2020$ sudo docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED              SIZE
+<none>              <none>              06b99f1ea8a6        About a minute ago   874MB
+<none>              <none>              9e54579d91ac        7 minutes ago        72.9MB
+ubuntu              latest              d70eaf7277ea        5 days ago           72.9MB
+haskell             latest              f334c5207457        5 days ago           1.5GB
+python              3.6                 170e243861ec        8 days ago           874MB
+monic@monic-VivoBook-ASUSLaptop-X712FBC-A712FB:~/Linux(I_semestr)/Linux-basics-2020$ sudo docker run --rm -d -p 65432:65432 06b99f1ea8a6 python3 server.py
+fd8991db89b6a08025a99e33d87b84cb93b04e8ddfea73d12a1823d08bd62d9d
+monic@monic-VivoBook-ASUSLaptop-X712FBC-A712FB:~/Linux(I_semestr)/Linux-basics-2020$ sudo docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                       PORTS                      NAMES
+fd8991db89b6        06b99f1ea8a6        "python3 server.py"      27 seconds ago      Up 26 seconds                0.0.0.0:65432->65432/tcp   ecstatic_cartwright
+9f8b62ea88d9        d70eaf7277ea        "/bin/sh -c 'apt ins…"   5 minutes ago       Exited (100) 5 minutes ago                              gallant_goldberg
+3851beae8159        haskell             "ghci"                   28 minutes ago      Up 28 minutes                                           happy_booth
+monic@monic-VivoBook-ASUSLaptop-X712FBC-A712FB:~/Linux(I_semestr)/Linux-basics-2020$ telnet localhost 65432
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+Eugeniy Slobodkin is perfect!
+OK:Eugeniy Slobodkin is perfect!
+
+
+

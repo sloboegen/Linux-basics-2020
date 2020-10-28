@@ -1,1 +1,18 @@
-# print your commands
+monic@monic-VivoBook-ASUSLaptop-X712FBC-A712FB:~$ sudo docker pull haskell
+Using default tag: latest
+latest: Pulling from library/haskell
+e4c3d3e4f7b0: Pull complete 
+1953f77b2099: Pull complete 
+49a93320d14b: Pull complete 
+a18bbbaf61b4: Pull complete 
+Digest: sha256:61fd2def20725f174a61d27b59e9d0e4f121f6637542bcbe03a4535f28aee7f5
+Status: Downloaded newer image for haskell:latest
+docker.io/library/haskell:latest
+monic@monic-VivoBook-ASUSLaptop-X712FBC-A712FB:~$ sudo docker run -it --rm haskell
+GHCi, version 8.10.2: https://www.haskell.org/ghc/  :? for help
+Prelude> 2 + 3
+5
+Prelude> print "Hello world"
+"Hello world"
+Prelude> 
+
