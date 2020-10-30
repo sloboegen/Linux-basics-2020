@@ -1,0 +1,112 @@
+Заняти 1: Простейшие комманды
+
+1. Проверил какой пользователь активный коммандой $ w ответ:
+
+USER - yu. 
+
+Командой $ id -u yu(имя моего пользователя) узнал свой id, ответ - 1000
+
+2. $ date +"%X" - Выяснил текущее время : 03:02:29
+3. $ pwd - определил каталог : /home/yu/Desktop
+4. $ ls - Вывел содержимое каталога, он пуст. $ ls -l ответила total 0.
+5. $ mkdir создал каталог work. $cd work - перешёл в него.ы
+6. $ echo "0 1 2 3 4 5 6 7 8 9" > digits.txt
+7. $ cat > filewithtwostrings.txt 
+	1 2 3 4 5 6 7 8 9
+	9 8 7 6 5 4 3 2 1 
+8. $ cat > sixtyfive.txt [1\n2\n3\n4\n5]
+	cat sixtyfive.txt > bufferfile.txt
+	cat bufferfile.txt >> sixtyfive.txt(выполнил комманду 12 раз)
+9.	wc -l sixtyfive.txt = 65 sixtyfive.txt
+10. 	head -5 /etc/passwd > firstlinesofpasswd.txt (первые 5 строк) tail -5 /etc/passwd > lastlinesofpasswd.txt (последние 5 строк)
+	root:x:0:0:root:/root:/bin/bash					pulse:x:123:128:PulseAudio,,,:/var/run/pulse:/user/sbin/nologin
+	daemon:x:1:1:daemon:/user/sbin:/usr/sbin/nologin		gnome-initial-setup:x:124:65534::/run/gnome-initial-setup/:/bin/false
+	bin:x:2:2:bin:/bin:/user/sbin/nologin				gdm:x:125:130:Gome Display Manager:/var/lib/gdm3:/bin/false
+	sys:x:3:3:sys:/dev:/user/sbin/nologin				yu:x:1000:1000:yu,,,:/home/yu:/bin/bash
+	sunc:x:4:65534:sync:/bin:/bin/sync				systemd-coredumpb:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+11.	$ cd /etc 
+	$ ls -l > ~/Desktop/work/listofetc.txt
+12.	$ ls -la | wc (229 файлов из которых 3 скрытые, т.к ls -l | wc = 226 файлов)
+
+Вторая группа заданий.
+
+Задание 1.
+
+1. $ mkdir DirA , $mkdir DirB , $ cat > fileE.txt, $ cd DirA , 
+	$ cat > fileA.txt 1 2 ,ctrl+c, $ cat > fileB.txt 1 2, ctrl+c, cd ../, $cd DirB.txt,
+	$ cat > fileC.txt 2 1  ,ctrl+c, $ cat > fileD.txt 2 1, ctrl+c, $cd ../,
+	$cd DirA
+	$ cat fileA.txt fileB.txt ~/Desktop/DirB/fileC.txt ~/Desktop/DirB/fileD.txt > ~/Desktop/fileE.txt 			
+2. $ rmdir --ignore-fail-on-non-empty DirA,$rmdir --ignore-fail-on-non-empty DirB
+
+Задание 2.
+
+1. $ cd /etc
+   $ grep 'yu' passwd
+	yu:x:1000:1000:yu,,,:/home/yu:/bin/bash
+2. date -s "2021-01-01 00:00:01" , Пятнциа
+
+Задание 3. 
+
+1. 	$ sudo touch myfile.txt
+	$ sudo chmod 746 myfile.txt
+	$ id >> myfile.txt
+	$ ls >> myfile.txt
+	$ ps >> myfile.txt
+	$ date >> myfile.txt
+	$ grep "yu" myfile.txt
+2. 	$ cal 2019 >> myfile.txt
+
+Задание 4.
+
+1. $ ls /etc/ | grep ".conf" | head -10
+2. $ cd ~/Desktop
+	$ mkdir TestCat
+	$ chmod 754 TestCat , где 7 = 4(пиши)+2(записывай)+1(выполняй) для владельца, 5 = 4+1 для группы, 4 для всех остальных(только чтение)
+
+Задание 5. 
+1.	$ touch a.txt
+	$ chmod 640 a.txt
+
+2. 	$ chmod 600 a.txt
+
+Задание 6. 
+1. $ tar -cvf arch.tar fileA.txt fileB.txt fileC.txt
+2. $ tar -xvf arch.tar
+
+Задание 7.
+
+1. $ touch a.txt
+       $ chmod 640 a.txt
+
+2. $ chmod 002 a.txt
+
+Задание 8
+
+1. $ find /usr/bin/ -name "z*'
+2. $ cd ../../../ выходи из всех каталогов $ finf . -mtime -1 
+
+Задание 9
+
+1. $ find -user student
+2. $ tail -5 /etc/passwd | wc = 10 слов.
+
+Задание 10
+
+1. $ mkdir newCat 
+	$ ls -l , drwxrr-xr-x, где d - каталог. 1(rwx) - чтение,запись,исполнение - для владельца, 
+						r-x = чтение исполнение для группы
+						r-x = чтение исполнения для всех остальных
+
+2. ls /etc | grep ".conf" | head -10 | sed 's/\.conf*//'
+
+Задание 11
+
+1. $ touch a.txt 
+	$ chmod 002 a.txt
+2. $ rm a.txt aaa.txt
+	$ chmod 777 aaa.txt
+	$ cat >> aaa.txt 
+	$ cat aaa.txt
+
+		
