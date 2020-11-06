@@ -18,7 +18,6 @@ class Test8(unittest.TestCase):
             stdout = stdout.decode('utf-8')
             result = int(stdout)
             f.close()
-
         self.assertTrue(abs(gold - result) <= 1)
 
 
