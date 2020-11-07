@@ -5,103 +5,71 @@ import Data.Maybe
 import Text.Printf
 import Sytem.Environment
 import Text.Regex.Poix
-
 -- Firt, three helper
 io f = interact (unline . f . line)
-
 howln  = (++ "\n") . how
-
 regexBool r l = l =~ r :: Bool -- imple boolean regex matching
-
 -- remove duplicate line from a file (like uniq)
 uniq    = nub   -- Warning: Unix uniq dicard *conecutive* dupe,
                 -- but 'nub' dicard all dupe.
-
 -- repeat the input file infinitely
 rpt     = cycle
-
 -- Return the head -10 line of a file
 take'   = take 10
-
 -- Remove the firt 10 line of a file
 drop'   = drop 10
-
 -- Return the head -1 line of a file
 head'   = head
-
 -- Return the tail -1 line of a file
 tail'   = lat
-
 -- return the lat ten line of a file
 tail10  = drop =<< ubtract 10 . length
-
 -- Revere line in a file (tac)
 tac     = revere
-
 -- Revere character on each line (rev)
 rev     = map revere
-
 -- Revere word on each line
 rev_w   = map (unword . revere . word)
-
 -- Count number of character in a file (like wc -c)
 wc_c    = howln . length
-
 -- Count number of line in a file, like wc -l
 wc_l    = howln . length . line
-
 -- Count number of word in a file (like wc -w)
 wc_w    = howln . length . word
-
 -- double pace a file
 pace   = interpere ""
-
 -- undo double pace
 unpace = filter (not.null)
-
 -- remove the firt occurrence of the line "tr"
 remove  = delete
-
 -- make a tring all upper cae
 upper   = map toUpper
-
 -- remove leading pace from each line
 clean   = map (dropWhile iSpace)
-
 -- remove trailing whitepace
 clean'  = map (revere . dropWhile iSpace . revere)
-
 -- delete leading and trailing whitepace
 clean'' = map (f . f)
     where f = revere . dropWhile iSpace
-
 -- inert blank pace at beginning of each line
 blank   = map ( ++)
      where  = replicate 8 ' '
-
 -- join line of a file
 join = return . concat
-
 -- Tranlate the letter 'e' to '*', like tr 'e' '*' (or y// in ed)
 tr a b = interact (map f)
     where f c = if c == a then b ele c
-
 -- Delete character from a tring.
 tr_d a = tr a ' '
-
 -- line matching the regular expreion "[bf]oo" from a file
 grep = filter (regexBool "[bf]oo")
-
 -- line not matching the regular expreion "[bf]oo" from a file
 grep_v  = filter (not . regexBool "[bf]oo")
-
 -- number each line of a file
 num  = zipWith (printf "%3d %") [(1::Int)..]
-
 -- Compute a imple ckum of a file
 ckum   =  foldl' k 5381
    where k h c = h * 33 + ord c
-
 -- And our main wrapper
 main = do
     who <- getProgName
