@@ -1,0 +1,25 @@
+git init Repo
+gedit bio.md
+gedit main.cpp
+git add bio.md main.cpp
+git commit -m 'add files'
+gedit Makefile
+make
+./main
+gedit .gitignore
+git add Makefile .gitignore
+git commit 'add Makefile'
+gedit main.cpp
+git add main.cpp
+git commit -m 'add line'
+gedit bio.md
+git add bio.md
+git commit -m 'add line
+gedit bio.md
+git add bio.md
+git commit -m 'add line
+git log --pretty=%H
+git checkout 63da377cd4a2644fe5a1d2522bd87182033a4beb
+git checkout -b cmake
+gedit CMakeLists.txt
+git merge master
